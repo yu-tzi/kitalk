@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import { Login } from './login'
+import { Login } from '../component/login'
 import { useState } from 'react';
-import { UserLoginContext } from './userLoginContext';
-import { UserList } from './userList';
-import { Chatroom } from './chatRoom';
+import { UserLoginContext } from '../component/userLoginContext';
+import { UserList } from '../component/userList';
+import { Chatroom } from '../component/chatRoom';
 
 export default function Home() {
   const [userId, setUserId] = useState<{ name: string, uuid: string }>({ name: '', uuid: '' })
