@@ -6,7 +6,7 @@ import { UserList } from './userList';
 import { Chatroom } from './chatRoom';
 
 export default function Home() {
-  const [userId, setUserId] = useState(null)
+  const [userId, setUserId] = useState<{ name: string, uuid: string }>({ name: '', uuid: '' })
   return (
     <>
       <Head>
@@ -16,9 +16,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <UserLoginContext.Provider value={userId}>
-        {!userId && <Login setUserId={setUserId} />}
-        {userId && <UserList/>}
-        {userId && <Chatroom/>}
+        {!userId.name && <Login setUserId={setUserId} />}
+        {userId.name && <UserList/>}
+        {userId.name && <Chatroom/>}
       </UserLoginContext.Provider>
     </>
   )
