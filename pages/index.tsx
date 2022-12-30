@@ -2,6 +2,8 @@ import Head from 'next/head'
 import { Login } from './login'
 import { useState } from 'react';
 import { UserLoginContext } from './userLoginContext';
+import { UserList } from './userList';
+import { Chatroom } from './chatRoom';
 
 export default function Home() {
   const [userId, setUserId] = useState(null)
@@ -15,7 +17,8 @@ export default function Home() {
       </Head>
       <UserLoginContext.Provider value={userId}>
         {!userId && <Login setUserId={setUserId} />}
-        {userId && userId.name}
+        {userId && <UserList/>}
+        {userId && <Chatroom/>}
       </UserLoginContext.Provider>
     </>
   )
