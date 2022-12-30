@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { UserLoginContext } from './userLoginContext';
 
 export default function Home() {
-  const [ userId, setUserId ] = useState(false)
+  const [userId, setUserId] = useState(null)
   return (
     <>
       <Head>
@@ -14,7 +14,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <UserLoginContext.Provider value={userId}>
-        <Login setUserId={setUserId}/>
+        {!userId && <Login setUserId={setUserId} />}
+        {userId && userId.name}
       </UserLoginContext.Provider>
     </>
   )
