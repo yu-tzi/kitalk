@@ -17,8 +17,8 @@ export default function handler(
         res.socket.server.io = io
     }
 
-    res.socket.server.io.on("connection", (socket) => {
-        socket.on("hello", (arg) => {
+    res.socket.server.io.on("connection", (socket:any) => {
+        socket.on("hello", (arg:any) => {
             console.log(arg); 
             socket.broadcast.emit("hello", `${arg} 12345`);
         });

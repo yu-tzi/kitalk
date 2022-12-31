@@ -1,6 +1,7 @@
 import { ReactNode, useContext, useEffect, useState } from 'react';
 import { UserLoginContext } from './userLoginContext';
-import io from 'Socket.IO-client'
+// @ts-ignore: Unreachable code error
+const { io } = require("socket.io-client");
 let socket
 
 export const UserList = () => {
@@ -12,7 +13,7 @@ export const UserList = () => {
                 console.log('connected')
             })
             socket.emit("hello", userId.name);
-            socket.on("hello", (arg) => {
+            socket.on("hello", (arg: any) => {
                 console.log(arg); 
             });
         })
