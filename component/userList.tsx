@@ -8,7 +8,9 @@ export const UserList = () => {
     const [userList, setUserList] = useState({ name: '' })
     useEffect(() => {
         fetch('/api/conntectToSocket').then(() => {
-            socket = io('https://kitalk.vercel.app/socket.io/', { path: '' });
+            //socket = io('https://kitalk.vercel.app/socket.io/', { path: '' });
+            //socket = io('https://kitalk.vercel.app/socket.io/', { path: '/' });
+            socket = io('https://kitalk.vercel.app/socket.io/', { path: '/' });
             socket.on('connect', () => {
                 console.log('connected')
             })
