@@ -11,6 +11,10 @@ export const UserList = () => {
             socket.on('connect', () => {
                 console.log('connected')
             })
+            socket.emit("hello", userId.name);
+            socket.on("hello", (arg) => {
+                console.log(arg); 
+            });
         })
     }, [])
     const userId = useContext(UserLoginContext)
