@@ -10,7 +10,7 @@ export const UserList = () => {
         fetch('/api/conntectToSocket').then(() => {
             //socket = io('https://kitalk.vercel.app/socket.io/', { path: '' });
             //socket = io('https://kitalk.vercel.app/socket.io/', { path: '/' });
-            socket = io('https://kitalk.vercel.app/socket.io/', { path: '/' });
+            socket = io('https://kitalk.vercel.app/index/', { path: '/socket.io/' });
             socket.on('connect', () => {
                 console.log('connected')
             })
